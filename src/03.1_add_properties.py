@@ -3,13 +3,14 @@
 
 """
 
+import random
 from main import get_client
 from specklepy.transports.server import ServerTransport
 from specklepy.api import operations
 from specklepy.objects.base import Base
 
 PROJECT_ID = "128262a20c"
-MODEL_ID = "621db91bc1"
+MODEL_ID = "39d99ae41a"
 
 # Sort breps by z position (assuming brep.basePoint.z exists)
 def get_z(brep):
@@ -39,7 +40,7 @@ def main():
         data["properties"] = {}
 
     # Now you can safely assign
-    data["properties"]["Tower"] = "Team_EC"
+    data["properties"]["Tower"] = "Team_03.1"
 
     # Or add properties to child elements
     elements = getattr(data, "elements", [])
@@ -56,7 +57,10 @@ def main():
                     brep["properties"] = {}
                 # Assign the custom number if available, else fallback to index+1
                 brep["properties"]["Module"] = numbers[i] if i < len(numbers) else "01"
-                brep["properties"]["Designer"] = "Elena Corio"
+                #pick random values
+                randomnames = ["Elena Corio", "Symon Kipkemei"]
+                selected_name = random.choice(randomnames)
+                brep["properties"]["Designer"] = selected_name
                 print(brep["properties"])
     print(f"✓ Added properties to elements")
 
