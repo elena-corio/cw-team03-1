@@ -2,8 +2,9 @@ from config import PROJECT_ID
 from config import MODEL_NAME
 from specklepy.core.api.inputs.version_inputs import CreateVersionInput
 from specklepy.core.api.inputs.model_inputs import CreateModelInput
+from specklepy.api.client import SpeckleClient
 
-def create_model_and_version(client, object_id):
+def create_model_and_version(client: SpeckleClient, object_id):
     # Create a model
     model_input = CreateModelInput(
         project_id=PROJECT_ID,
