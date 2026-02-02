@@ -1,5 +1,8 @@
+from application.workflow import run_application
+
+
 def main():
-    print("Hello from cw-team03-1-session03!")
+    run_application()
 
 
 if __name__ == "__main__":
