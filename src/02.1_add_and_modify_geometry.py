@@ -13,7 +13,7 @@ from specklepy.core.api.inputs.version_inputs import CreateVersionInput
 
 PROJECT_ID = "128262a20c"
 SOURCE_MODEL_ID = "a1014e4b32"
-TARGET_MODEL_ID = "621db91bc1"
+TARGET_MODEL_ID = "39d99ae41a"
 OFFSET_Z = 16000 # Offset for the duplicated object in Z direction
 # ? Why 16000 even if the model is in m
 
