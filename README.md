@@ -41,7 +41,14 @@ This structure improves maintainability and testability.
    TARGET_MODEL=your_target_model
    MODEL_NAME=your_model_name
    ```
+    For authentication, the `.env` file must include:
+    - `SPECKLE_TOKEN="your_token"`
+    - `SPECKLE_SERVER=https://app.speckle.systems`
 
+   You can test authentication by running the `get_client.py` file:
+   ```
+   uv python src/adapters/get_client.py
+   
 ### Running the Project
 
 To run the main script:
