@@ -14,7 +14,7 @@ def main():
     client = get_client()
     # Create a new model inside the project
     model = client.model.create(CreateModelInput(
-        name="homework/session03/team_ec",
+        name="homework/session03/team_03.1",
         description="Learning specklepy - Model",
         project_id=PROJECT_ID
     ))
