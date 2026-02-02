@@ -38,8 +38,8 @@ This structure improves maintainability and testability.
    WORKSPACE_ID=your_workspace_id
    PROJECT_ID=your_project_id
    SOURCE_MODEL=your_source_model
-   TARGET_MODEL=your_target_model
    MODEL_NAME=your_model_name
+   MODEL_DESCRIPTION=your_model_description
    ```
     For authentication, the `.env` file must include:
     - `SPECKLE_TOKEN="your_token"`
@@ -64,14 +64,10 @@ cw_team03.1_session03/
 ├── src/
 │   ├── config.py
 │   ├── adapters/
-│   │   └── send_data.py
 │   ├── application/
-│   │   └── workflow.py
 │   ├── domain/
-│   │   └── models.py
 │   └── main.py
-├── .env
 ├── .gitignore
-├── requirements.txt
+├── pyproject.toml
 └── README.md
 ```
