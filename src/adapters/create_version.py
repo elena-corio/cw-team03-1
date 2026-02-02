@@ -11,6 +11,8 @@ def create_model_and_version(client, object_id):
         description="This is my first model"
     )
     model = client.model.create(model_input)
+
+    print(f"✓ Created model: {model.id}")
     
     # Create a version
     version_input = CreateVersionInput(
@@ -20,7 +22,7 @@ def create_model_and_version(client, object_id):
     )
     version = client.version.create(version_input)
 
+    print(f"✓ Created version: {version.id}")
+
     return version
 
-    print(f"✓ Created model: {model.id}")
-    print(f"✓ Created version: {version.id}")
