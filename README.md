@@ -29,6 +29,7 @@ This structure improves maintainability and testability.
    ```
    pip install uv
    ```
+   ```
    uv sync
    ```
 
