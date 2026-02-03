@@ -10,6 +10,16 @@ This project follows principles inspired by **Hexagonal Architecture** (Ports an
 
 This structure improves maintainability and testability.
 
+## Features
+
+- Fetch last version of a model
+- Receive data from model
+- Create new version in a model
+- Send data to model version
+- Create data structure
+- Copy and move geometry
+- Add properties
+
 ## Setup
 
 ### Prerequisites
@@ -38,8 +48,7 @@ This structure improves maintainability and testability.
    WORKSPACE_ID=your_workspace_id
    PROJECT_ID=your_project_id
    SOURCE_MODEL=your_source_model
-   MODEL_NAME=your_model_name
-   MODEL_DESCRIPTION=your_model_description
+   TARGET_MODEL=your_target_model
    ```
     For authentication, the `.env` file must include:
     - `SPECKLE_TOKEN="your_token"`
@@ -57,17 +66,4 @@ uv python src/main.py
 ```
 Replace `src/main.py` with your actual entry point if different.
 
-## Example Folder Structure
 
-```
-cw_team03.1_session03/
-├── src/
-│   ├── config.py
-│   ├── adapters/
-│   ├── application/
-│   ├── domain/
-│   └── main.py
-├── .gitignore
-├── pyproject.toml
-└── README.md
-```
