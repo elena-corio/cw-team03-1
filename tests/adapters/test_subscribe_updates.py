@@ -32,7 +32,7 @@ async def test_subscribe_project_versions_updated_calls_on_update():
 
     # Calls the function under test, injecting the mocks so no real network calls are made.
     await subscribe_project_versions_updated(
-        "token", "project_id", on_update,
+        "project_id", on_update,
         transport=mock_transport, client=mock_client
     )
 
