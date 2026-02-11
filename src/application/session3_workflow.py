@@ -9,7 +9,7 @@ from domain.modify_geometry import modify_geometry
 from config import PROJECT_ID
 
 
-def run_application():
+def run_receive_and_send_data_workflow():
     client  = get_client()
     #Receive data
     transport = ServerTransport(stream_id=PROJECT_ID, client=client)

@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import Mock
-from adapters.query_object_data import query_object_data_graphql
+from adapters.util_query_object_data import query_object_data_graphql
 
 def test_query_object_data_graphql():
     # Create a mock client with a mock httpclient

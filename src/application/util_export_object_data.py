@@ -1,7 +1,7 @@
 import os
 import json
 from adapters.get_client import get_client
-from adapters.query_object_data import query_object_data_graphql
+from adapters.util_query_object_data import query_object_data_graphql
 from config import PROJECT_ID, OBJECT_ID, OBJECT_DATA_FILE
 
 def export_object_data():
