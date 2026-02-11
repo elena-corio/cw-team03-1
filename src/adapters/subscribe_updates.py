@@ -21,7 +21,6 @@ SUBSCRIPTION_QUERY = gql("""
     }
 """)
 
-# Dependency injection for easier testing (transport and client can be mocked)
 async def subscribe_project_versions_updated(token, project_id, on_update, transport=None, client=None):
     """
     Subscribe to project version updates and call on_update for each update.
@@ -40,6 +39,8 @@ async def subscribe_project_versions_updated(token, project_id, on_update, trans
                 SUBSCRIPTION_QUERY,
                 variable_values={"projectId": project_id}
             ):
+                # Make the subscription code reusable and testable
                 await on_update(result.get("projectVersionsUpdated"))
+    
     finally:
         await transport.close()
