@@ -20,6 +20,12 @@ This structure improves maintainability and testability.
 - Copy and move geometry
 - Add properties
 
+## Notes 
+
+A WebSocket is a communication protocol that provides a full-duplex, persistent connection between a client (like a web browser or app) and a server. 
+Unlike HTTP, which is request-response and closes after each exchange, a WebSocket connection stays open, allowing both the client and server to send messages to each other at any time in real time. 
+This is useful for applications that need instant updates, such as chat apps, live dashboards, or real-time collaboration tools.
+
 ## Setup
 
 ### Prerequisites
@@ -67,4 +73,12 @@ uv python src/main.py
 ```
 Replace `src/main.py` with your actual entry point if different.
 
+### Running the tests
+
+To run the main script:
+```
+uv pip install -e .
+pytest
+```
+uv pip install -e . after every change
 
