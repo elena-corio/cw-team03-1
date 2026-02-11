@@ -1,4 +1,5 @@
-import asyncio
+import os
+from dotenv import load_dotenv
 from gql import gql, Client
 from gql.transport.websockets import WebsocketsTransport
 
@@ -21,11 +22,16 @@ SUBSCRIPTION_QUERY = gql("""
     }
 """)
 
-async def subscribe_project_versions_updated(token, project_id, on_update, transport=None, client=None):
+async def subscribe_project_versions_updated(project_id, on_update, transport=None, client=None):
     """
     Subscribe to project version updates and call on_update for each update.
     Optionally accept transport and client for easier testing.
     """
+    # Load environment variables from a local .env file, if present
+    load_dotenv()
+
+    # Get token and server host from environment
+    token = os.environ.get("SPECKLE_TOKEN")
     if transport is None:
         transport = WebsocketsTransport(
             url="wss://app.speckle.systems/graphql",
@@ -35,11 +41,13 @@ async def subscribe_project_versions_updated(token, project_id, on_update, trans
         client = Client(transport=transport, fetch_schema_from_transport=False)
     try:
         async with client as session:
+            print("Subscription started, waiting for updates...")
             async for result in session.subscribe(
                 SUBSCRIPTION_QUERY,
                 variable_values={"projectId": project_id}
             ):
                 # Make the subscription code reusable and testable
+                print("Received subscription result:", result)
                 await on_update(result.get("projectVersionsUpdated"))
     
     finally:

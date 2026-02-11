@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from specklepy.api.client import SpeckleClient
-from config import SPECKLE_TOKEN
 
 
 def get_client() -> SpeckleClient:
@@ -13,7 +12,7 @@ def get_client() -> SpeckleClient:
     load_dotenv()
 
     # Get token and server host from environment
-    token = SPECKLE_TOKEN
+    token = os.environ.get("SPECKLE_TOKEN")
     server_host = os.environ.get("SPECKLE_SERVER", "app.speckle.systems")
 
     if not token:
